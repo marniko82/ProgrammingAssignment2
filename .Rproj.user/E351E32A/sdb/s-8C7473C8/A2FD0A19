@@ -1,12 +1,12 @@
 {
-    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## makeCacheMatrix creates a cached matrix \n\nmakeCacheMatrix <- function(x = matrix()) {\n  m <- NULL\n  set <- function(y) {\n    x <<- y\n    m <<- NULL\n  }\n  get <- function() x\n  setinverse <- function(solve) m <<- solve\n  getinverse <- function() m\n  list(set = set, get = get,\n       setinverse = setinverse,\n       getinverse = getinverse)\n  \n}\n\n\n## cacheSolve inverts a given matrix; if the  inverted matrix it returns the cached version \n\ncacheSolve <- function(x, ...)  {\n  m <- x$getinverse()\n  if(!is.null(m)) {\n    message(\"getting cached data\")\n    return(m)\n  }\n  data <- x$get()\n  m <- solve(data, ...)\n  x$setinverse(m)\n  m\n}\n\n",
+    "contents" : "## Put comments here that give an overall description of what your\n## functions do\n\n## makeCacheMatrix creates a cached matrix object\n\nmakeCacheMatrix <- function(x = matrix()) {\n  m <- NULL\n  set <- function(y) {\n    x <<- y\n    m <<- NULL\n  }\n  get <- function() x\n  setinverse <- function(solve) m <<- solve\n  getinverse <- function() m\n  list(set = set, get = get,\n       setinverse = setinverse,\n       getinverse = getinverse)\n  \n}\n\n\n## cacheSolve inverts a given matrix; if the matrix was already inverted,\n## it returns the cached version \n\ncacheSolve <- function(x, ...)  {\n  m <- x$getinverse()\n  if(!is.null(m)) {\n    message(\"getting cached data\")\n    return(m)\n  }\n  data <- x$get()\n  m <- solve(data, ...)\n  x$setinverse(m)\n  m\n}\n\n",
     "created" : 1399920249692.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1727685470",
+    "hash" : "785004348",
     "id" : "A2FD0A19",
-    "lastKnownWriteTime" : 1399923249,
+    "lastKnownWriteTime" : 1399923639,
     "path" : "C:/Users/Nikolici/Desktop/R_Programming/Assignment_2/ProgrammingAssignment2/cachematrix.R",
     "project_path" : "cachematrix.R",
     "properties" : {
