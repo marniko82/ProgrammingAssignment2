@@ -1,0 +1,17 @@
+{
+    "contents" : "makeCacheMatrix <- function(x = numeric()) {\n  m <- NULL\n  set <- function(y) {\n    x <<- y\n    m <<- NULL\n  }\n  get <- function() x\n  setinverse <- function(solve) m <<- solve\n  getinverse <- function() m\n  list(set = set, get = get,\n       setinverse = setinverse,\n       getinverse = getinverse)\n\n}\n\ncacheSolve <- function(x, ...) {\n  m <- x$getinverse()\n  if(!is.null(m)) {\n    message(\"getting cached data\")\n    return(m)\n  }\n  data <- x$get()\n  m <- solve(data, ...)\n  x$setinverse(m)\n  m\n}\n\n# X <- matrix(rnorm(1600), nrow=sqrt(1600))\nrand_choice = rnorm(1:1600)\na <- makeCacheMatrix()\na$set(matrix(rand_choice, nrow=sqrt(length(rand_choice))))          #set the vector\na$get                                        #get the vector \ncacheSolve(a)                        #calculate the mean \ncacheSolve(a)                        #when is called back use the cached mean  \n",
+    "created" : 1399918818986.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2735943833",
+    "id" : "545C9C29",
+    "lastKnownWriteTime" : 1399922417,
+    "path" : "C:/Users/Nikolici/Desktop/R_Programming/Assignment_2/ProgrammingAssignment2/test.R",
+    "project_path" : "test.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}
