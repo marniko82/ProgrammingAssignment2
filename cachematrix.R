@@ -32,7 +32,7 @@ cacheSolve <- function(x, ...)  {
 
 # rand_choice = rnorm(1:16000000)
 # a <- makeCacheMatrix()
-# a$set(matrix(rand_choice, nrow=sqrt(length(rand_choice))))          #set the vector
-# a$get                                        #get the vector 
-# cacheSolve(a)                        #calculate the mean 
-# cacheSolve(a)                        #when is called back use the cached mean  
+# a$set(matrix(rand_choice, nrow=sqrt(length(rand_choice))))          #set the matrix
+# a$get                                        #get the matrix 
+# cacheSolve(a)                        #calculate the inverse 
+# cacheSolve(a)                        #when is called back use the cached inverse  
