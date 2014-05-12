@@ -1,7 +1,7 @@
 ## Put comments here that give an overall description of what your
 ## functions do
 
-## Write a short comment describing this function
+## makeCacheMatrix creates a cached matrix 
 
 makeCacheMatrix <- function(x = matrix()) {
   m <- NULL
@@ -18,6 +18,9 @@ makeCacheMatrix <- function(x = matrix()) {
   
 }
 
+
+## cacheSolve inverts a given matrix; if the  inverted matrix it returns the cached version 
+
 cacheSolve <- function(x, ...)  {
   m <- x$getinverse()
   if(!is.null(m)) {
@@ -30,9 +33,3 @@ cacheSolve <- function(x, ...)  {
   m
 }
 
-# rand_choice = rnorm(1:16000000)
-# a <- makeCacheMatrix()
-# a$set(matrix(rand_choice, nrow=sqrt(length(rand_choice))))          #set the matrix
-# a$get                                        #get the matrix 
-# cacheSolve(a)                        #calculate the inverse 
-# cacheSolve(a)                        #when is called back use the cached inverse  
